@@ -11,6 +11,9 @@ navLinks.forEach((link) => {
     link.addEventListener('mouseout', (e) => {
         e.target.removeAttribute('style');
     })
+    link.addEventListener('click', (e) => {
+        e.target.preventDefault();
+    });
 });
 
 
