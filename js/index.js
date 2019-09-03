@@ -39,3 +39,25 @@ leftArrow.addEventListener('click', () => {
         introImg.src = imgSources[i];
     }
 });
+
+//Increase font sizes of all paragraphs
+const pars = Array.from(document.querySelectorAll('p'));
+let parSize = 1.6;
+
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
+document.addEventListener('keydown', (e) => {
+    if(e.code === 'ArrowUp') {
+        parSize += 0.5;
+        pars.forEach((par) => {par.style.fontSize = parSize + 'rem'});
+    } else if (e.code === 'ArrowDown') {
+        parSize -= 0.5;
+        pars.forEach((par) => {par.style.fontSize = parSize + 'rem'});
+    }
+});
+
