@@ -108,3 +108,10 @@ window.addEventListener('resize', () => {
        img.style.opacity = Number(img.style.opacity * 0.9);
     });
 });
+
+const letsGoSection = document.querySelector('.letsGoSection');
+const letsGoPar = document.querySelector('#letsGoPar');
+letsGoSection.addEventListener('click', (e) => {
+    e.target.style.backgroundColor = 'red';
+    e.stopPropagation();
+})
