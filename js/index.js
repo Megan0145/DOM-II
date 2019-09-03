@@ -81,9 +81,16 @@ destinationImg.addEventListener('wheel', (event) => {
 //Updates heading when you either select the value of the input field, or double click on the button next to it
 const welcomeParHeading = document.querySelector('#welcomeParHeading');
 const welcomeNameInput = document.querySelector('#nameInput');
+
 welcomeNameInput.addEventListener('select', (e) => {
   welcomeParHeading.textContent += ' ' + e.target.value; 
 });
+
+welcomeNameInput.addEventListener('focus', (e) => {
+    e.target.style.width = '300px';
+    e.target.style.height = '30px';
+})
+
 const dblClickBtn = document.querySelector('.dblClick');
 dblClickBtn.addEventListener('dblclick', () => {
     welcomeParHeading.textContent += ' ' + welcomeNameInput.value;
