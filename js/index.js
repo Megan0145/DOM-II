@@ -61,3 +61,13 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+//increase destination image using mousewheel
+const destinationImg = document.querySelector('.content-destination img');
+let scale = 1; 
+
+destinationImg.addEventListener('wheel', (event) => {
+  event.preventDefault();
+  scale += event.deltaY * -0.01;
+  scale = Math.min(Math.max(.125, scale), 4);
+  destinationImg.style.transform = `scale(${scale})`;
+})
