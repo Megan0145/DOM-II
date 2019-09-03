@@ -1,6 +1,6 @@
 // Your code goes here
 
-//Nav links change bg color on moueover, revert back to original on mouseout
+//Nav links change bg color on mouseover, revert back to original on mouseout
 const navLinks = Array.from(document.querySelectorAll('nav a'));
 navLinks.forEach((link) => {
     link.addEventListener('mouseover', (e) => {
@@ -12,6 +12,7 @@ navLinks.forEach((link) => {
         e.target.removeAttribute('style');
     })
 });
+
 
 //Change image source of intro image on keydown
 const introImg = document.querySelector('#introImg');
@@ -61,6 +62,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
 //increase destination image using mousewheel
 const destinationImg = document.querySelector('.content-destination img');
 let scale = 1; 
@@ -71,3 +73,28 @@ destinationImg.addEventListener('wheel', (event) => {
   scale = Math.min(Math.max(.125, scale), 4);
   destinationImg.style.transform = `scale(${scale})`;
 })
+
+
+//Updates heading when you either select the value of the input field, or double click on the button next to it
+const welcomeParHeading = document.querySelector('#welcomeParHeading');
+const welcomeNameInput = document.querySelector('#nameInput');
+welcomeNameInput.addEventListener('select', (e) => {
+  welcomeParHeading.textContent += ' ' + e.target.value; 
+});
+const dblClickBtn = document.querySelector('.dblClick');
+dblClickBtn.addEventListener('dblclick', () => {
+    welcomeParHeading.textContent += ' ' + welcomeNameInput.value;
+});
+
+//changes opacity of all images on resize of window 
+const images = Array.from(document.querySelectorAll('img'));
+
+window.addEventListener('resize', () => {
+    images.forEach((img) => {
+
+        if (!img.style.opacity) {
+           img.style.opacity = 1;
+        }
+       img.style.opacity = Number(img.style.opacity * 0.9);
+    });
+});

@@ -361,3 +361,9 @@ img {
   background: #FFFFFF;
   color: #17A2B8;
 }
+.dblClick {
+  display: inline;
+  padding: 0.4rem;
+  background-color: teal;
+  color: white;
+}
